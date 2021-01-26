@@ -1,0 +1,11 @@
+alias ..='cd ..'
+alias python2='python2.7'
+alias python='python3'
+alias c='clear'
+alias ipi='ipconfig getifaddr en0'
+alias ipe='curl ipinfo.io/ip'
+alias zshreload="source ~/.zshrc && echo \"zsh config reloaded\""
+alias zshrc='${=EDITOR} ~/.zshrc'
+alias ping='ping -c 5'
+
+

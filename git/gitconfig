@@ -1,0 +1,8 @@
+[color]
+	ui = always
+	pager = true
+	diff = always
+
+[user]
+	name = Michael Li
+	email = michaelli1324@gmail.com
