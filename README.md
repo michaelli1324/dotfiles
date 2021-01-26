@@ -9,6 +9,7 @@ dotfile configs
 
 ## install vim config
 `ln -s ~/dotfiles/vim ~/.vim`
+`vim +PlugInstall +qall`
 
 ## install zsh config
 `chsh -s /bin/zsh`

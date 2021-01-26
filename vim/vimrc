@@ -95,3 +95,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
     \ quit | endif
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * silent NERDTreeMirror
+
+" Load plugins and mappings.
+source ~/dotfiles/vim/mappings.vim
+source ~/dotfiles/vim/plugins.vim
