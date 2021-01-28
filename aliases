@@ -1,11 +1,17 @@
+# navigation
 alias ..='cd ..'
+alias mv='mv -i'
+alias c='clear'
+
+# python
 alias python2='python2.7'
 alias python='python3'
-alias c='clear'
+
+# network info
 alias ipi='ipconfig getifaddr en0'
 alias ipe='curl ipinfo.io/ip'
-alias zshreload="source ~/.zshrc && echo \"zsh config reloaded\""
-alias zshrc='${=EDITOR} ~/.zshrc'
 alias ping='ping -c 5'
 
-
+# zsh config
+alias zshreload="source ~/.zshrc && echo \"zsh config reloaded\""
+alias zshrc='${=EDITOR} ~/.zshrc'

@@ -105,4 +105,7 @@ source ~/dotfiles/aliases
 # Enable Ctrl-x-e to edit command line
 autoload -U edit-command-line
 
+# vim keybindings
+bindkey -v
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
