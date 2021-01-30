@@ -112,6 +112,6 @@ autoload -U edit-command-line
 bindkey -v
 
 # show username and hostname in prompt
-PROMPT="$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
+PROMPT="%{$fg[cyan]%}%n@%{$fg[blue]%}%m%{$reset_color%} ${PROMPT}"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
