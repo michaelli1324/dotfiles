@@ -88,8 +88,11 @@ inoremap jh <Esc>
 " tabs to spaces
 set tabstop=2 shiftwidth=2 expandtab
 
+" Load plugins and mappings.
+source ~/dotfiles/vim/mappings.vim
+source ~/dotfiles/vim/plugins.vim
+
 " ctrlp
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 nnoremap ; :CtrlPBuffer<CR>
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_show_hidden = 1
@@ -105,6 +108,23 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * silent NERDTreeMirror
 
-" Load plugins and mappings.
-source ~/dotfiles/vim/mappings.vim
-source ~/dotfiles/vim/plugins.vim
+" gutentags
+set statusline+=%{gutentags#statusline()}
+" define what is a new project
+let g:gutentags_add_default_project_roots = 0
+let g:gutentags_project_root = ['package.json', '.git']
+" ignore tag files
+let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
+" make gutentags generate in most cases
+let g:gutentags_generate_on_new = 1
+let g:gutentags_generate_on_missing = 1
+let g:gutentags_generate_on_write = 1
+let g:gutentags_generate_on_empty_buffer = 0
+" generate more info for tags
+let g:gutentags_ctags_extra_args = [
+      \ '--tag-relative=yes',
+      \ '--fields=+ailmnS',
+      \ ]
+
+
+

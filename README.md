@@ -1,16 +1,6 @@
 # dotfiles
-dotfile configs
+dotfile configs; uses [dotbot](https://github.com/anishathalye/dotbot) to manage dotfiles
 
 # installation
-`git clone https://github.com/michaelli1324/dotfiles.git ~/dotfiles`
+`git clone https://github.com/michaelli1324/dotfiles.git ~/dotfiles && cd ~/dotfiles && ./install`
 
-## install git config 
-`ln -s ~/dotfiles/git/gitconfig ~/.gitconfig`
-
-## install vim config
-`ln -s ~/dotfiles/vim ~/.vim`
-`vim +PlugInstall +qall`
-
-## install zsh config
-`chsh -s /bin/zsh`
-`ln -s ~/dotfiles/zshrc ~/.zshrc` 
