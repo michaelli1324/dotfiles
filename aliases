@@ -15,3 +15,6 @@ alias ping='ping -c 5'
 # zsh config
 alias zshreload="source ~/.zshrc && echo \"zsh config reloaded\""
 alias zshrc='${=EDITOR} ~/.zshrc'
+
+# vim config
+alias vimrc='${=EDITOR} ~/.vim/vimrc'

@@ -14,6 +14,9 @@ set nocompatible
 " Turn on syntax highlighting.
 syntax on
 
+" Set <Leader> key to ,
+let mapleader=","
+
 " Disable the default Vim startup message.
 set shortmess+=I
 
@@ -78,6 +81,12 @@ inoremap <Left>  <ESC>:echoe "Use h"<CR>
 inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
+
+" Map jh to <Esc>
+inoremap jh <Esc>
+
+" tabs to spaces
+set tabstop=2 shiftwidth=2 expandtab
 
 " ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim

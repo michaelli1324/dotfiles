@@ -100,7 +100,10 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/dotfiles/aliases
+# # Test if ~/.aliases exists and source it
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
+fi
 
 # Enable Ctrl-x-e to edit command line
 autoload -U edit-command-line
