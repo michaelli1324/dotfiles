@@ -114,4 +114,17 @@ bindkey -v
 # show username and hostname in prompt
 PROMPT="%{$fg[cyan]%}%n@%{$fg[blue]%}%m%{$reset_color%} ${PROMPT}"
 
+# fzf
+if type rg &> /dev/null; then
+    export FZF_DEFAULT_COMMAND='rg --files'
+    export FZF_DEFAULT_OPTS='-m --height 50% --border'
+fi
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# java
+export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+export JAVA_12_HOME=$(/usr/libexec/java_home -v12)
+
+alias java11='export JAVA_HOME=$JAVA_11_HOME'
+alias java12='export JAVA_HOME=$JAVA_12_HOME'

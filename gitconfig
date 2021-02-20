@@ -6,3 +6,8 @@
 [user]
 	name = Michael Li
 	email = michael.li1324@gmail.com
+
+[alias]
+  graph = log --all --decorate --oneline --graph
+[core]
+	pager = cat

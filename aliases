@@ -2,6 +2,9 @@
 alias ..='cd ..'
 alias mv='mv -i'
 alias c='clear'
+alias ll='ls -al'
+alias la='ls -a'
+
 
 # python
 alias python2='python2.7'
@@ -17,4 +20,7 @@ alias zshreload="source ~/.zshrc && echo \"zsh config reloaded\""
 alias zshrc='${=EDITOR} ~/.zshrc'
 
 # vim config
-alias vimrc='${=EDITOR} ~/.vim/vimrc'
+alias vimrc='${=EDITOR} ~/.vimrc'
+
+# aliases config
+alias aliases='${=EDITOR} ~/.aliases'
