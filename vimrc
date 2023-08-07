@@ -93,5 +93,3 @@ set clipboard=unnamed
 
 " Load plugins and mappings.
 source ~/dotfiles/vim/mappings.vim
-source ~/dotfiles/vim/plugins.vim
-source ~/dotfiles/vim/plugin_configs.vim
