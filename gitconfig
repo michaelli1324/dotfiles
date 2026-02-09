@@ -6,6 +6,7 @@
 [user]
 	name = Michael Li
 	email = michael.li1324@gmail.com
+	signingkey = E8E4FC16431B9DD6
 
 [alias]
   graph = log --all --decorate --oneline --graph

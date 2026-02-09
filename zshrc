@@ -19,7 +19,6 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
-
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
@@ -71,8 +70,9 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git globalias zsh-autocomplete)
 
+DISABLE_AUTO_UPDATE=true
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -84,9 +84,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
+   export EDITOR='nvim'
 else
-   export EDITOR='vim'
+   export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -110,9 +110,45 @@ autoload -U edit-command-line
 
 # vim keybindings
 bindkey -v
+bindkey '^R' history-incremental-search-backward
+
+# Prefix-based history search with up/down arrows
+# (overrides zsh-autocomplete's default bindings)
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
+bindkey "^[OA" history-beginning-search-backward
+bindkey "^[OB" history-beginning-search-forward
 
 # show username and hostname in prompt
 PROMPT="%{$fg[cyan]%}%n@%{$fg[blue]%}%m%{$reset_color%} ${PROMPT}"
+
+# git status in right prompt
+function git_prompt_status_detailed() {
+  if ! git rev-parse --is-inside-work-tree &>/dev/null; then
+    return
+  fi
+  local status_output=""
+  local ahead behind staged modified untracked
+  
+  # ahead/behind
+  ahead=$(git rev-list --count @{upstream}..HEAD 2>/dev/null)
+  behind=$(git rev-list --count HEAD..@{upstream} 2>/dev/null)
+  [[ $ahead -gt 0 ]] && status_output+="%{$fg[green]%}↑$ahead%{$reset_color%}"
+  [[ $behind -gt 0 ]] && status_output+="%{$fg[red]%}↓$behind%{$reset_color%}"
+  
+  # staged/modified/untracked counts
+  staged=$(git diff --cached --numstat 2>/dev/null | wc -l | tr -d ' ')
+  modified=$(git diff --numstat 2>/dev/null | wc -l | tr -d ' ')
+  untracked=$(git ls-files --others --exclude-standard 2>/dev/null | wc -l | tr -d ' ')
+  
+  [[ $staged -gt 0 ]] && status_output+=" %{$fg[green]%}+$staged%{$reset_color%}"
+  [[ $modified -gt 0 ]] && status_output+=" %{$fg[yellow]%}~$modified%{$reset_color%}"
+  [[ $untracked -gt 0 ]] && status_output+=" %{$fg[red]%}?$untracked%{$reset_color%}"
+  
+  echo "$status_output"
+}
+setopt PROMPT_SUBST
+RPROMPT='$(git_prompt_status_detailed)'
 
 # fzf
 if type rg &> /dev/null; then
@@ -121,3 +157,42 @@ if type rg &> /dev/null; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# java
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home"
+export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+export JAVA_12_HOME=$(/usr/libexec/java_home -v12)
+alias java11='export JAVA_HOME=$JAVA_11_HOME'
+alias java12='export JAVA_HOME=$JAVA_12_HOME'
+alias tmuxconf='$EDITOR ~/.tmux.conf'
+
+
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
+
+# glean config
+[ -f ~/.gleanrc ] && source ~/.gleanrc
+
+
+eval "$(~/.local/bin/mise activate zsh)"
+export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
+export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
+
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'; fi
+
+# bun completions
+[ -s "/Users/michaelli/.bun/_bun" ] && source "/Users/michaelli/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Disable globalias auto-expand on space, use Ctrl+E to expand manually
+bindkey -M viins " " self-insert            # Space is just a space (no expand)
+bindkey -M viins "^E" globalias             # Ctrl+E to expand alias

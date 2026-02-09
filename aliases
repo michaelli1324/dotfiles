@@ -4,6 +4,9 @@ alias mv='mv -i'
 alias c='clear'
 alias ll='ls -al'
 alias la='ls -a'
+function mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
 
 
 # python
@@ -24,3 +27,33 @@ alias vimrc='${=EDITOR} ~/.vimrc'
 
 # aliases config
 alias aliases='${=EDITOR} ~/.aliases'
+
+# glean aliases moved to ~/.glean-aliases.rc
+alias gleanrc='${=EDITOR} ~/.gleanrc'
+
+function gitstash() {
+    git stash push -m "zsh_stash_name_$1"
+}
+
+function gitstashapply() {
+    git stash apply $(git stash list | grep "zsh_stash_name_$1" | cut -d: -f1)
+}
+
+alias hotspotinit="sudo sysctl -w net.inet.ip.ttl=65 && sudo sysctl -w net.inet6.ip6.hlim=65"
+
+# ssh raspberry pi
+alias rpi3='ssh pi@raspberrypi3.local'
+alias rpi4='ssh michaelli@raspberrypi.local'
+
+# ghostty config
+alias ghosttyconfig='${=EDITOR} ~/.config/ghostty/config'
+
+# tmux config
+alias tmuxconfig='${=EDITOR} ~/.tmux.conf'
+
+# github account switching
+alias ghwork='gh auth switch --user michael-li-glean'
+alias ghpersonal='gh auth switch --user michaelli1324'
+
+# opencode
+alias oc='opencode'

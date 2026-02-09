@@ -91,5 +91,8 @@ set tabstop=2 shiftwidth=2 expandtab
 " yank to clipboard
 set clipboard=unnamed
 
+" highlight search
+set hlsearch
+
 " Load plugins and mappings.
 source ~/dotfiles/vim/mappings.vim
