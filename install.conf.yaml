@@ -18,6 +18,10 @@
       path: config/ghostty
       create: true
       relink: true
+    ~/.config/nvim:
+      path: config/nvim
+      create: true
+      relink: true
 
 - create:
     - ~/downloads
