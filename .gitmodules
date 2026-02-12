@@ -8,3 +8,6 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "config/ghostty/shaders"]
+	path = config/ghostty/shaders
+	url = https://github.com/0xhckr/ghostty-shaders
