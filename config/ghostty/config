@@ -1,0 +1,14 @@
+# Shaders
+custom-shader = ./shaders/cursor_blaze.glsl
+# custom-shader = ./shaders/bettercrt.glsl
+# custom-shader = ./shaders/starfield-colors.glsl
+# custom-shader = ./shaders/bloom.glsl
+# custom-shader = ./shaders/spotlight.glsl 
+
+# Keybindings
+keybind = global:cmd+g=toggle_visibility
+
+# Font Familiy
+font-family = JetBrains Mono
+# font-family = Andale Mono
+# font-family = Osaka
