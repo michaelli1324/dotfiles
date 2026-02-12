@@ -7,6 +7,10 @@
 
 - link:
     ~/.tmux.conf: tmux.conf
+    ~/.tmux/plugins:
+      path: tmux/plugins
+      create: true
+      relink: true
     ~/.vim: vim
     ~/.vimrc: vimrc
     ~/.git: git

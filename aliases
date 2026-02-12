@@ -28,6 +28,9 @@ alias vimrc='${=EDITOR} ~/.vimrc'
 # aliases config
 alias aliases='${=EDITOR} ~/.aliases'
 
+# git config
+alias gitconfig='${=EDITOR} ~/.gitconfig'
+
 # glean aliases moved to ~/.glean-aliases.rc
 alias gleanrc='${=EDITOR} ~/.gleanrc'
 

@@ -158,37 +158,5 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# java
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home"
-export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
-export JAVA_12_HOME=$(/usr/libexec/java_home -v12)
-alias java11='export JAVA_HOME=$JAVA_11_HOME'
-alias java12='export JAVA_HOME=$JAVA_12_HOME'
-alias tmuxconf='$EDITOR ~/.tmux.conf'
-
-
-autoload -U +X bashcompinit && bashcompinit
-autoload -U +X compinit && compinit
-
 # glean config
 [ -f ~/.gleanrc ] && source ~/.gleanrc
-
-
-eval "$(~/.local/bin/mise activate zsh)"
-export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
-export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
-
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'; fi
-
-# bun completions
-[ -s "/Users/michaelli/.bun/_bun" ] && source "/Users/michaelli/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"

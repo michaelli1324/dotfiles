@@ -6,9 +6,10 @@
 [user]
 	name = Michael Li
 	email = michael.li1324@gmail.com
-	signingkey = E8E4FC16431B9DD6
+	signingkey = 8AC174E5B1562315
 
 [alias]
   graph = log --all --decorate --oneline --graph
+
 [commit]
 	gpgsign = true
