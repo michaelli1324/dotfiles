@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git globalias zsh-autocomplete)
+plugins=(git globalias zsh-autocomplete zsh-autosuggestions)
 
 DISABLE_AUTO_UPDATE=true
 source $ZSH/oh-my-zsh.sh
@@ -192,7 +192,3 @@ if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/op
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Disable globalias auto-expand on space, use Ctrl+E to expand manually
-bindkey -M viins " " self-insert            # Space is just a space (no expand)
-bindkey -M viins "^E" globalias             # Ctrl+E to expand alias

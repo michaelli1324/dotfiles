@@ -10,5 +10,5 @@
 
 [alias]
   graph = log --all --decorate --oneline --graph
-[core]
-	pager = cat
+[commit]
+	gpgsign = true
